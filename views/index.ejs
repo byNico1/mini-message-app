@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <%- include("navbar") %>
+    <div class="messages">
+      <% messages.forEach((message, index) => { %>
+      <div class="message">
+        <ul>
+          <% Object.keys(message).map((prop) => { %> <% if(prop === "text")
+          return %>
+          <li><%= message[prop] %></li>
+          <% }) %>
+        </ul>
+        <a href="/new/<%- index %>">
+          <button class="btn">Open message</button>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
